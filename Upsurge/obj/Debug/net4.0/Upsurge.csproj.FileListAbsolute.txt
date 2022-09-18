@@ -1,0 +1,15 @@
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\MCGalaxy_.dll
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\MySql.Data.dll
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\MCGalaxy_.pdb
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.csproj.AssemblyReference.cache
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.AssemblyInfoInputs.cache
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.AssemblyInfo.cs
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.csproj.CoreCompileInputs.cache
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Upsurge.csproj.CopyComplete
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\Parkour.dll
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\Parkour.pdb
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Parkour.dll
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\obj\Debug\net4.0\Parkour.pdb
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\LibNoise.dll
+C:\Users\laure\Desktop\Upsurge\Upsurge\Upsurge\bin\Debug\net4.0\Newtonsoft.Json.dll
