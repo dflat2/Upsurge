@@ -8,14 +8,41 @@ namespace MCGalaxy.Commands.Fun
         public override string type { get { return CommandTypes.Games; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 
-        public override void Use(Player p, string name)
+        public override void Use(Player p, string message)
         {
-            if (name == "")
+            bool showPing = false;
+            string name = "";
+            string[] args = message.SplitSpaces();
+            
+            switch(args.Length)
             {
-                Help(p); return;
+                case 1:
+                    if (args[0] == "")
+                    {
+                        Help(p);
+                        return;
+                    } else
+                    {
+                        name = args[0];
+                    }
+                    break;
+                case 2:
+                    if (args[1] == "ping")
+                    {
+                        name = args[0];
+                        showPing = true;
+                    } else
+                    {
+                        Help(p);
+                        return;
+                    }
+                    break;
+                default:
+                    Help(p);
+                    return;
             }
 
-            if (PlayerDB.FindName(name) == null)
+            if (PlayerDB.FindName(name + "+") == null)
             {
                 p.Message("Could not find player");
                 return;
@@ -33,7 +60,7 @@ namespace MCGalaxy.Commands.Fun
 
                 PlayerBot.Add(bot, false);
 
-                Replayer replay = new Replayer(p, bot, p.level.name);
+                Replayer replay = new Replayer(p, bot, p.level.name, showPing);
                 replay.StartReplayer();
             }
         }
@@ -42,6 +69,7 @@ namespace MCGalaxy.Commands.Fun
         {
             p.Message(@"/Replay [player]");
             p.Message("Replays someone's run recorder of the current map.");
+            p.Message(@"Use ""/Replay [player] ping"" to replay a player with ping info (note: very laggy(!))");
         }
     }
 }

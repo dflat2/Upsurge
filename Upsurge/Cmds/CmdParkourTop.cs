@@ -22,11 +22,16 @@ namespace MCGalaxy
             // Ugly ass parser
             if (message == "")
             {
-                Help(p); return;
+                x = 1;
             }
             else if (message.ToLower() == "all")
             {
                 all = true;
+            }
+            else if (LevelInfo.AllMapNames().CaselessContains(message.ToLower()))
+            {
+                x = 1;
+                level = message.ToLower();
             }
             else if (int.TryParse(message, out x))
             {
@@ -115,7 +120,7 @@ namespace MCGalaxy
         {
             p.Message("/ParkourTop [map] [x]");
             p.Message("Gives the best scores in the range x -> x + 10 for the given map");
-            p.Message(@"Use ""/ParkourTop [map] all"" to all top 100 players on the map");
+            p.Message(@"Use ""/ParkourTop [map] all"" to see all top 100 players on the map");
         }
     }
 }

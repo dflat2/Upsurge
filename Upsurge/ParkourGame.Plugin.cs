@@ -71,7 +71,10 @@ namespace MCGalaxy.Games
             p.Extras["runrecorder"] = new RunRecorder(p);
             if (RoundInProgress)
             {
-                ToggleParkourGates(p, true);
+                ReplaceGates(Block.Air);
+            } else
+            {
+                ReplaceGates(Block.Glass);
             }
 
             double startLeft = (RoundStart - DateTime.UtcNow).TotalSeconds;
@@ -87,8 +90,11 @@ namespace MCGalaxy.Games
             {
                 if (other.level != p.level || p == other || !p.CanSeeEntity(other)) continue;
 
+                ParkourData data_ = ParkourGame.Get(p);
+
                 Entities.Despawn(p, other);
                 Entities.Spawn(p, other);
+                data_.VisibilityToggled = false;
             }
             TabList.Add(p, p, Entities.SelfID);
         }

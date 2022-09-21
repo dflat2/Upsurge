@@ -8,11 +8,11 @@ using MCGalaxy;
 public class Stopwatch
 {
     static int timerAccuracy = 47;
-
-    string format = @"mm\:ss\.ff";
+    readonly string format = @"mm\:ss\.ff";
     private System.Timers.Timer aTimer;
     DateTime startTime;
-    Player p;
+    readonly Player p;
+    ElapsedEventReceiver eventReceiver;
     public Stopwatch(Player p)
     {
         this.p = p;
@@ -20,7 +20,7 @@ public class Stopwatch
 
     public class ElapsedEventReceiver : ISynchronizeInvoke
     {
-        private Thread m_Thread;
+        public Thread m_Thread;
         private BlockingCollection<Message> m_Queue = new BlockingCollection<Message>();
 
         public ElapsedEventReceiver()
@@ -29,6 +29,11 @@ public class Stopwatch
             m_Thread.Priority = ThreadPriority.Lowest;
             m_Thread.IsBackground = true;
             m_Thread.Start();
+        }
+
+        ~ElapsedEventReceiver()
+        {
+            m_Thread.Abort();
         }
 
         private void Run()
@@ -108,7 +113,7 @@ public class Stopwatch
 
     public void StartTimer(DateTime startTime) // startTime can be the round start, OR when a player joined the map
     {
-        ElapsedEventReceiver eventReceiver = new ElapsedEventReceiver();
+        eventReceiver = new ElapsedEventReceiver();
         this.startTime = startTime;
         aTimer = new System.Timers.Timer(Stopwatch.timerAccuracy);
         aTimer.SynchronizingObject = eventReceiver;
@@ -133,6 +138,8 @@ public class Stopwatch
         if (aTimer != null)
         {
             aTimer.Stop();
+            ((ElapsedEventReceiver)(aTimer.SynchronizingObject)).m_Thread.Abort();
+            aTimer.SynchronizingObject = null;
             aTimer.Dispose();
         }
         p.SendCpeMessage(CpeMessageType.BottomRight2, "");

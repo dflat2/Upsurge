@@ -15,9 +15,9 @@ namespace MCGalaxy.Games
             while (true)
             {
                 RoundStart = DateTime.UtcNow.AddSeconds(delay);
-                if (!Running) return null;
+                //if (!Running) return null;
 
-                DoCountdown("&4Starting in &f{0} &4seconds", delay, 10);
+                DoCountdown("&4Starting in &f{0} &4seconds", delay, 100);
                 if (!Running) return null;
 
                 List<Player> players = GetPlayers();
@@ -54,34 +54,21 @@ namespace MCGalaxy.Games
                 ParkourData data = Get(pl);
 
                 data.ResetState();
-                ToggleParkourGates(pl, true);
             }
+            ReplaceGates(Block.Air);
             RoundEnd = DateTime.UtcNow.Add(duration).AddSeconds(1);
         }
 
-        
-        void ToggleParkourGates(Player p, bool on)
+        void ReplaceGates(ushort block)
         {
             // List of arrays of the form [x, y, z], each message block coordinates with the word /parkourgate in them
-            List<String[]> MsgBlocks = Database.GetRows("Messages" + p.level.name, "X, Y, Z", "WHERE lower(Message)=\"/parkourgate\"");
-            
-            // Turn the gates off (into air)
-            if (RoundInProgress && on)
+            List<String[]> MsgBlocks = Database.GetRows("Messages" + ParkourGame.Instance.Map.name, "X, Y, Z", "WHERE lower(Message)=\"/parkourgate\"");
+            foreach (String[] s in MsgBlocks)
             {
-                foreach (String[] s in MsgBlocks)
-                {
-                    p.SendBlockchange(ushort.Parse(s[0]), ushort.Parse(s[1]), ushort.Parse(s[2]), Block.Air);
-                }
-            } else
-            {
-                // Turn the gates on (into whatever it was)
-                foreach (String[] s in MsgBlocks)
-                {
-                    p.RevertBlock(ushort.Parse(s[0]), ushort.Parse(s[1]), ushort.Parse(s[2]));
-                }
+                ParkourGame.Instance.Map.Blockchange(ushort.Parse(s[0]), ushort.Parse(s[1]), ushort.Parse(s[2]), block);
             }
         }
-        
+
 
         void DoCoreGame()
         {

@@ -6,6 +6,10 @@
     <RootNamespace>MCGalaxy</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="LibNoise">
       <HintPath>..\LibNoise.dll</HintPath>

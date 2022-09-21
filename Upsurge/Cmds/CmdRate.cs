@@ -34,10 +34,12 @@ namespace MCGalaxy.Commands.Fun
             {
                 p.Message("Cannot rate this map as you are an author of it."); return;
             }
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
+
+            // Initialize path directory if it does not exist
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //}
 
             PlayerExtList levelList = PlayerExtList.Load(path + "/" + p.level.name + ".txt"); // Automatically creates the file as well
 
@@ -48,11 +50,6 @@ namespace MCGalaxy.Commands.Fun
 
             levelList.Update(p.truename, rating.ToString());
 
-            /* To avoid refactoring, we use the following trick: define a rating x from 1-5 to be the same as
-             * giving x likes and 5-x dislikes
-             * The rating of a map is then [total likes]/[total dislikes]
-             * The number of people who rated a map is furthermore [likes + dislikes] / 5
-             */
             if (oldRating == int.MaxValue)  // Not rated before
             {
                 p.level.Config.Likes += rating;

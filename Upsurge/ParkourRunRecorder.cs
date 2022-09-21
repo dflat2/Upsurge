@@ -11,7 +11,8 @@ using MCGalaxy.Maths;
 public class RunRecorder
 {
     private System.Timers.Timer aTimer;
-    Player p;
+    readonly Player p;
+    ElapsedEventReceiver eventReceiver;
     List<string> runCoords = new List<string>();
     public RunRecorder(Player p)
     {
@@ -20,7 +21,7 @@ public class RunRecorder
 
     private class ElapsedEventReceiver : ISynchronizeInvoke
     {
-        private Thread m_Thread;
+        public Thread m_Thread;
         private BlockingCollection<Message> m_Queue = new BlockingCollection<Message>();
 
         public ElapsedEventReceiver()
@@ -108,7 +109,7 @@ public class RunRecorder
 
     public void StartRecorder()
     {
-        ElapsedEventReceiver eventReceiver = new ElapsedEventReceiver();
+        eventReceiver = new ElapsedEventReceiver();
         aTimer = new System.Timers.Timer(Replayer.replayAccuracy);
         aTimer.SynchronizingObject = eventReceiver;
         aTimer.Elapsed += OnTimedEvent;
@@ -132,7 +133,7 @@ public class RunRecorder
         {
             Directory.CreateDirectory("RunRecorder");
         }
-        File.WriteAllLines(String.Format("RunRecorder/{0}+{1}.txt", p.name, p.level.name), runCoords);
+        File.WriteAllLines(String.Format("RunRecorder/{0}{1}.txt", p.name, p.level.name), runCoords);
     }
 
     public void StopRecorder()
@@ -140,6 +141,8 @@ public class RunRecorder
         if (aTimer != null)
         {
             aTimer.Stop();
+            ((ElapsedEventReceiver)(aTimer.SynchronizingObject)).m_Thread.Abort();
+            aTimer.SynchronizingObject = null;
             aTimer.Dispose();
         }
     }

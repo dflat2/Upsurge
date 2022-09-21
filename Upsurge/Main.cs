@@ -91,6 +91,8 @@ namespace MCGalaxy
             Command.Register(new CmdStopReplayers());           // Stop replayers (they can definitely crowd your view a bit)
             Command.Register(new CmdToggleVisibility());        // Toggle other players' visibility
             Command.Register(new CmdParkourReveal());           // Toggle parkour blocks for visibility
+            Command.Register(new CmdRemoveBestTime());
+            Command.Register(new CmdRemoveAllTimes());
 
 
             // Load the configuration and autostart if turned on
@@ -114,6 +116,8 @@ namespace MCGalaxy
             Command.Unregister(Command.Find("StopReplayers"));
             Command.Unregister(Command.Find("ToggleVisibility"));
             Command.Unregister(Command.Find("ParkourReveal"));
+            Command.Unregister(Command.Find("RemoveBestTime"));
+            Command.Unregister(Command.Find("RemoveAllTimes"));
 
             ParkourGame.Instance.End();
             IGame.RunningGames.Remove(ParkourGame.Instance);
@@ -175,10 +179,10 @@ namespace MCGalaxy
             {
                 if (!ParseTimespan(p, "round time", args, ref lCfg.RoundTime)) return;
             }
-            //else if (prop.CaselessEq("authortime"))
-            //{
+            else if (prop.CaselessEq("authortime"))
+            {
                 //if (!ParseTimespan(p, "author time", args, ref lCfg.AuthorTime)) return;
-            //}
+            }
             else
             {
                 Help(p, "set"); return;

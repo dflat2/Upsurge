@@ -20,9 +20,9 @@ namespace MCGalaxy.Commands.Building
 
             string[] args = message.SplitSpaces();
             UInt16 checkpointNumber = 0;
-            UInt16 respawnX = UInt16.MaxValue;
-            UInt16 respawnY = UInt16.MaxValue;
-            UInt16 respawnZ = UInt16.MaxValue;
+            UInt16 respawnX = (ushort)data.MBCoords.X;
+            UInt16 respawnY = (ushort)data.MBCoords.Y;
+            UInt16 respawnZ = (ushort)data.MBCoords.Z;
             bool respawn = false;
 
             // Command Parser
@@ -84,7 +84,7 @@ namespace MCGalaxy.Commands.Building
                     return;
             }
 
-            if (!ParkourGame.Instance.RoundInProgress)
+            if (!ParkourGame.Instance.RoundInProgress || p.level != ParkourGame.Instance.Map)
             {
                 return;
             } else

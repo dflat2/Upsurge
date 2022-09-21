@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MCGalaxy.Network;
 using MCGalaxy.SQL;
+using Newtonsoft.Json;
 
 namespace MCGalaxy.Games
 {
@@ -55,7 +56,10 @@ namespace MCGalaxy.Games
         public override RoundsGameConfig GetConfig() { return Config; }
 
         public static ParkourGame Instance = new ParkourGame();
-        public ParkourGame() { Picker = new LevelPicker(); }
+        public ParkourGame()
+        {
+            Picker = new LevelPicker();
+        }
 
         public DateTime RoundEnd = DateTime.UtcNow;
         public VolatileArray<Player> Finished = new VolatileArray<Player>();
@@ -303,7 +307,6 @@ namespace MCGalaxy.Games
             return ((seconds + 59) / 60) + "m left";
         }
 
-        // TODO: Fix this
         protected override string FormatStatus1(Player p)
         {
             int left = (int)(RoundEnd - DateTime.UtcNow).TotalSeconds;
@@ -314,7 +317,6 @@ namespace MCGalaxy.Games
             return string.Format(format, Finished.Count, Map.MapName, timespan);
         }
 
-        // TODO: Maybe find something nice to put here? WARNING: is used for the timer
         // Usually reserved for map type
         protected override string FormatStatus2(Player p)
         {

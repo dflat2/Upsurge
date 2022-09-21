@@ -13,23 +13,26 @@ public class Replayer
     public static int replayAccuracy = 10;
 
     private System.Timers.Timer aTimer;
-    PlayerBot p;
-    Player owner;
-    string level;
+    readonly PlayerBot p;
+    readonly Player owner;
+    readonly string level;
     string[] runCoords;
     int runCoordsSize = 0;
     int index = 0;
+    readonly bool showPing;
+    ElapsedEventReceiver eventReceiver;
 
-    public Replayer(Player owner, PlayerBot p, string level)
+    public Replayer(Player owner, PlayerBot p, string level, bool showPing)
     {
         this.p = p;
         this.level = level;
         this.owner = owner;
+        this.showPing = showPing;
     }
 
     public class ElapsedEventReceiver : ISynchronizeInvoke
     {
-        private Thread m_Thread;
+        public Thread m_Thread;
         private BlockingCollection<Message> m_Queue = new BlockingCollection<Message>();
 
         public ElapsedEventReceiver()
@@ -125,7 +128,7 @@ public class Replayer
             }
 
             ((List<Replayer>)(p.level.Extras["replayers"])).Add(this);
-            ElapsedEventReceiver eventReceiver = new ElapsedEventReceiver();
+            eventReceiver = new ElapsedEventReceiver();
             aTimer = new System.Timers.Timer(Replayer.replayAccuracy);
             aTimer.SynchronizingObject = eventReceiver;
             aTimer.Elapsed += OnTimedEvent;
@@ -158,8 +161,10 @@ public class Replayer
             p.Rot = rot;
 
             string ping = runCoords[index + 2];
-            owner.SendCpeMessage(CpeMessageType.Status3, ping);
-
+            if (showPing)
+            {
+                owner.SendCpeMessage(CpeMessageType.Status3, ping);
+            }
             index += 3;
         }
     }
@@ -184,6 +189,8 @@ public class Replayer
         if (aTimer != null)
         {
             aTimer.Stop();
+            ((ElapsedEventReceiver)(aTimer.SynchronizingObject)).m_Thread.Abort();
+            aTimer.SynchronizingObject = null;
             aTimer.Dispose();
         }
         if (p != null)

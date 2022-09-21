@@ -17,12 +17,13 @@ namespace MCGalaxy.Commands.Fun
             if (!p.level.Extras.Contains("replayers")) { return; }  // no replayers on the map or replayers extra never initialized
 
             int count = ((List<Replayer>)(p.level.Extras["replayers"])).Count;
+
             foreach (Replayer R in ((List<Replayer>)(p.level.Extras["replayers"])))
             {
                 R.StopReplayer();
             }
 
-            ((List<Replayer>)(ParkourGame.Instance.Map.Extras["replayers"])).Clear();
+            ((List<Replayer>)(p.level.Extras["replayers"])).Clear();
 
             p.Message("Removed " + count + " replay bots");
         }
