@@ -115,6 +115,10 @@ namespace MCGalaxy.Games
                 }
                 p.cancelchat = true;
             }
+            if (message == ".")
+            {
+                p.HandleCommand("TimeLeft", null, new CommandData());
+            }
         }
 
         void HandlePlayerDisconnect(Player p, string message)

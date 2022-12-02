@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net4.0</TargetFramework>
+    <TargetFramework>net40</TargetFramework>
     <AssemblyName>Parkour</AssemblyName>
     <RootNamespace>MCGalaxy</RootNamespace>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -15,16 +16,13 @@
       <HintPath>..\LibNoise.dll</HintPath>
     </Reference>
     <Reference Include="MCGalaxy_">
-      <HintPath>..\..\..\MCGalaxy-master\bin\Debug\MCGalaxy_.dll</HintPath>
+      <HintPath>..\..\..\MCGalaxy-master\obj\Debug\MCGalaxy_.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\..\..\MCGalaxy-master\bin\Debug\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Data.SQLite">
-      <HintPath>..\System.Data.SQLite.dll</HintPath>
     </Reference>
   </ItemGroup>
 

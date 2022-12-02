@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using MCGalaxy.DB;
 using MCGalaxy.SQL;
 
@@ -100,7 +101,7 @@ namespace MCGalaxy.Games
             new ColumnDesc("AuthorTimes", ColumnType.Int32),
         };
 
-        static object ReadStats(IDataRecord record, object arg)
+        static ParkourStats ParseStats(ISqlRecord record)
         {
             ParkourStats stats;
             stats.TotalRounds = record.GetInt("TotalRounds");
@@ -117,8 +118,9 @@ namespace MCGalaxy.Games
         static ParkourStats LoadStats(string name)
         {
             ParkourStats stats = default(ParkourStats);
-            return (ParkourStats)Database.ReadRows("ParkourStats", "*", stats,
-                                                  ReadStats, "WHERE Name=@0", name);
+            Database.ReadRows("ParkourStats", "*", record => stats = ParseStats(record),
+                "WHERE Name=@0", name);
+            return stats;
         }
 
         protected override void SaveStats(Player p)

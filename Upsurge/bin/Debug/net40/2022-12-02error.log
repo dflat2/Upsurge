@@ -1,0 +1,269 @@
+----12/02/2022 14:43:20 ----
+Type: NullReferenceException
+Source: Parkour
+Message: Object reference not set to an instance of an object
+Trace:   at MCGalaxy.Stopwatch.StopTimer () [0x00001] in <eff1c891b6a44e008866fb689e8b0354>:0 
+  at MCGalaxy.Games.ParkourGame.EndRound () [0x00133] in <eff1c891b6a44e008866fb689e8b0354>:0 
+  at MCGalaxy.Games.RoundsGame.RunGame () [0x00032] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:15:21 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:15:31 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:20:38 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:23:22 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:23:23 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:23:23 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:23:33 ----
+Type: SQLiteException
+Source: MCGalaxy_
+Message: SQL logic error
+no such table: Messagespuissant_wonderland
+Trace:   at MCGalaxy.SQL.SQLiteConnection.Prepare (System.String strSql, System.StringstrRemain) [0x0008a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.NextStatement () [0x0004a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteDataReader.NextResult () [0x00006] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.SQLiteCommand.ExecuteReader () [0x00012] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.IDatabaseBackend.Iterate (System.String sql, System.Object[] parameters, MCGalaxy.SQL.ReaderCallback callback) [0x00035] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.SQL.Database.Do (System.String sql, System.Boolean createDB, MCGalaxy.SQL.ReaderCallback callback, System.Object[] args) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:36:56 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.StartReplayer () [0x000f9] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Commands.Fun.CmdReplay.Use (MCGalaxy.Player p, System.String message) [0x00147] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Command.Use (MCGalaxy.Player p, System.String message, MCGalaxy.CommandData data) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Player.UseCommand (MCGalaxy.Command command, System.String args, MCGalaxy.CommandData data) [0x000c9] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:36:57 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.Finalize () [0x00002] in <2610d97a924541f981d2ab89d6e8e700>:0 
+
+-------------------------
+----12/02/2022 21:38:31 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.StartReplayer () [0x000f9] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Commands.Fun.CmdReplay.Use (MCGalaxy.Player p, System.String message) [0x00147] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Command.Use (MCGalaxy.Player p, System.String message, MCGalaxy.CommandData data) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Player.UseCommand (MCGalaxy.Command command, System.String args, MCGalaxy.CommandData data) [0x000c9] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:40:07 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.StartReplayer () [0x000f9] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Commands.Fun.CmdReplay.Use (MCGalaxy.Player p, System.String message) [0x00147] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Command.Use (MCGalaxy.Player p, System.String message, MCGalaxy.CommandData data) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Player.UseCommand (MCGalaxy.Command command, System.String args, MCGalaxy.CommandData data) [0x000c9] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:40:09 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.StartReplayer () [0x000f9] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Commands.Fun.CmdReplay.Use (MCGalaxy.Player p, System.String message) [0x00147] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at MCGalaxy.Command.Use (MCGalaxy.Player p, System.String message, MCGalaxy.CommandData data) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Player.UseCommand (MCGalaxy.Command command, System.String args, MCGalaxy.CommandData data) [0x000c9] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 21:40:12 ----
+Type: KeyNotFoundException
+Source: mscorlib
+Message: The given key 'replayers' was not present in the dictionary.
+Trace:   at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item (TKey key) [0x0001e] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.ExtrasCollection.get_Item (System.String key) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at Replayer.StopReplayer () [0x00023] in <2610d97a924541f981d2ab89d6e8e700>:0 
+  at Replayer.Finalize () [0x00002] in <2610d97a924541f981d2ab89d6e8e700>:0 
+
+-------------------------
+----12/02/2022 22:28:31 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.HandleJoinedLevel (MCGalaxy.Player p, MCGalaxy.Level prevLevel, MCGalaxy.Level level, System.Booleanannounce) [0x00056] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Events.PlayerEvents.OnJoinedLevelEvent.Call (MCGalaxy.Player p, MCGalaxy.Level prevLevel, MCGalaxy.Level level, System.Booleanannounce) [0x00011] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:28:34 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.StartRound (System.Collections.Generic.List`1[T] players) [0x0006f] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.DoRound () [0x0002a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.RoundsGame.RunGame () [0x00024] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:28:34 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.EndRound () [0x000ce] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.RoundsGame.End () [0x0002a] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Games.RoundsGame.RunGame () [0x00090] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:28:45 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.HandleJoinedLevel (MCGalaxy.Player p, MCGalaxy.Level prevLevel, MCGalaxy.Level level, System.Booleanannounce) [0x00056] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.PlayerJoinedGame (MCGalaxy.Player p) [0x00003] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.RoundsGame.Start (MCGalaxy.Player p, System.String map, System.Int32 rounds) [0x000b3] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Games.ParkourGame.Start (MCGalaxy.Player p, System.String map, System.Int32 rounds) [0x00026] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Commands.Fun.RoundsGameCmd.HandleStart (MCGalaxy.Player p, MCGalaxy.Games.RoundsGame game, System.String[] args) [0x0002b] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Commands.Fun.RoundsGameCmd.Use (MCGalaxy.Player p, System.String message, MCGalaxy.CommandData data) [0x0005d] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Player.UseCommand (MCGalaxy.Command command, System.String args, MCGalaxy.CommandData data) [0x000c9] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:29:20 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.PlayerLeftGame (MCGalaxy.Player p) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.HandlePlayerDisconnect (MCGalaxy.Player p, System.String message) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Events.PlayerEvents.OnPlayerDisconnectEvent+<>c__DisplayClass1.<Call>b__0 (MCGalaxy.Events.PlayerEvents.OnPlayerDisconnect pl) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.IEvent`1[IMethod].CallCommon (System.Action`1[T] action) [0x00015] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:29:20 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.PlayerLeftGame (MCGalaxy.Player p) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.RoundsGame.HandlePlayerDisconnect (MCGalaxy.Player p, System.String reason) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.PlayerEvents.OnPlayerDisconnectEvent+<>c__DisplayClass1.<Call>b__0 (MCGalaxy.Events.PlayerEvents.OnPlayerDisconnect pl) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.IEvent`1[IMethod].CallCommon (System.Action`1[T] action) [0x00015] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:29:20 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.PlayerLeftGame (MCGalaxy.Player p) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.HandlePlayerDisconnect (MCGalaxy.Player p, System.String message) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Events.PlayerEvents.OnPlayerDisconnectEvent+<>c__DisplayClass1.<Call>b__0 (MCGalaxy.Events.PlayerEvents.OnPlayerDisconnect pl) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.IEvent`1[IMethod].CallCommon (System.Action`1[T] action) [0x00015] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:29:20 ----
+Type: MissingMethodException
+Source: Parkour
+Message: Method not found: object MCGalaxy.SQL.Database.ReadRows(string,string,object,MCGalaxy.SQL.ReaderCallback,string,object[])
+Trace:   at MCGalaxy.Games.ParkourGame.Get (MCGalaxy.Player p) [0x0001a] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.ParkourGame.PlayerLeftGame (MCGalaxy.Player p) [0x00001] in <0f04750281b546e2957492b0ab71bad8>:0 
+  at MCGalaxy.Games.RoundsGame.HandlePlayerDisconnect (MCGalaxy.Player p, System.String reason) [0x0000f] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.PlayerEvents.OnPlayerDisconnectEvent+<>c__DisplayClass1.<Call>b__0 (MCGalaxy.Events.PlayerEvents.OnPlayerDisconnect pl) [0x00000] in <81625ffc1f404c6a9007959628f1a53b>:0 
+  at MCGalaxy.Events.IEvent`1[IMethod].CallCommon (System.Action`1[T] action) [0x00015] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------
+----12/02/2022 22:30:31 ----
+Type: InvalidOperationException
+Source: mscorlib
+Message: Collection was modified; enumeration operation may not execute.
+Trace:   at System.Collections.Generic.List`1+Enumerator[T].MoveNextRare () [0x00013] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at System.Collections.Generic.List`1+Enumerator[T].MoveNext () [0x0004a] in <de882a77e7c14f8ba5d298093dde82b2>:0 
+  at MCGalaxy.Games.ParkourGame.EndRound () [0x00057] in <4d822cec6ccd4614843059e6b32906a0>:0 
+  at MCGalaxy.Games.RoundsGame.RunGame () [0x00032] in <81625ffc1f404c6a9007959628f1a53b>:0 
+
+-------------------------

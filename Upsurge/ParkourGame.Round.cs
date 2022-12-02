@@ -15,7 +15,6 @@ namespace MCGalaxy.Games
             while (true)
             {
                 RoundStart = DateTime.UtcNow.AddSeconds(delay);
-                //if (!Running) return null;
 
                 DoCountdown("&4Starting in &f{0} &4seconds", delay, 100);
                 if (!Running) return null;
@@ -32,11 +31,11 @@ namespace MCGalaxy.Games
             List<Player> players = DoRoundCountdown(10);
             if (players == null) return;
 
-            if (!Running) return;
+            //if (!Running) return;
             RoundInProgress = true;
             StartRound(players);
 
-            if (!Running) return;
+            //if (!Running) return;
             DoCoreGame();
         }
 
@@ -111,6 +110,7 @@ namespace MCGalaxy.Games
         {
             if (ParkourGame.Instance.Map.Extras.Contains("replayers"))
             {
+
                 foreach (Replayer R in ((List<Replayer>)ParkourGame.Instance.Map.Extras["replayers"]))
                 {
                     R.StopReplayer();
@@ -124,8 +124,23 @@ namespace MCGalaxy.Games
             foreach (Player p in GetPlayers())
             {
                 ParkourData data = Get(p);
-                ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
-                ((RunRecorder)(p.Extras["runrecorder"])).StopRecorder();
+                if (p.Extras.Contains("stopwatch"))
+                {
+                    if (p.Extras.Contains("stopwatch"))
+                    {
+                        if (p.Extras["stopwatch"] != null)
+                        {
+                            ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
+                        }
+                    }
+                }
+                if (p.Extras.Contains("runrecorder"))
+                {
+                    if (p.Extras["runrecorder"] != null)
+                    {
+                        ((RunRecorder)(p.Extras["runrecorder"])).StopRecorder();
+                    }
+                }
             }
 
             var sortedWinners = GetSortedWinners();
@@ -302,7 +317,7 @@ namespace MCGalaxy.Games
             {
                 Player p = PlayerInfo.FindExact(entry.Key.ToLower());
                 List<string[]> playerBest = Database.GetRows("BestTimes", "Checkpoint,FinishTimeMS", "WHERE Player=@0 AND map=@1", p.name, p.level.name);
-                if (playerBest.Count == 0)
+                if (playerBest?.Any() != true)
                 {
                     ((RunRecorder)(p.Extras["runrecorder"])).Save();   // Means this is their first time running
                     continue;

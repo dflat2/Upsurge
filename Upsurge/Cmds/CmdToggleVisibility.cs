@@ -30,17 +30,17 @@ namespace MCGalaxy.Commands.Fun
             {
                 foreach (Player pl in ParkourGame.Instance.PublicGetPlayers())
                 {
-                    Entities.Spawn(p, pl);
+                    Entities.Despawn(p, pl);
                 }
-                p.Message("Players visibility is on");
+                p.Message("Players are now invisible");
             }
             else
             {
                 foreach (Player pl in ParkourGame.Instance.PublicGetPlayers())
                 {
-                    Entities.Despawn(p, pl);
+                    Entities.Spawn(p, pl);
                 }
-                p.Message("Players visibility is off");
+                p.Message("Players are now visible");
             }
         }
 

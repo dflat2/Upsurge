@@ -93,6 +93,7 @@ namespace MCGalaxy
             Command.Register(new CmdParkourReveal());           // Toggle parkour blocks for visibility
             Command.Register(new CmdRemoveBestTime());
             Command.Register(new CmdRemoveAllTimes());
+            Command.Register(new CmdTimeLeft());
 
 
             // Load the configuration and autostart if turned on
@@ -118,6 +119,7 @@ namespace MCGalaxy
             Command.Unregister(Command.Find("ParkourReveal"));
             Command.Unregister(Command.Find("RemoveBestTime"));
             Command.Unregister(Command.Find("RemoveAllTimes"));
+            Command.Unregister(Command.Find("TimeLeft"));
 
             ParkourGame.Instance.End();
             IGame.RunningGames.Remove(ParkourGame.Instance);

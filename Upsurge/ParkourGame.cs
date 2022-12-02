@@ -46,6 +46,7 @@ namespace MCGalaxy.Games
             Finished = false;
             FinishedTime = DateTime.MinValue;
             Checkpoints.Clear();
+            VisibilityToggled = false;  // Note that players are "respawned" when the new map is sent
         }
     }
 
@@ -172,15 +173,9 @@ namespace MCGalaxy.Games
             {
                 Finished.Remove(p);
             }
-            ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
-            ((RunRecorder)(p.Extras["runrecorder"])).StopRecorder();
-        }
-
-        public override void AdjustPrefix(Player p, ref string prefix)
-        {
-            if (!Running) return;
-            int winStreak = Get(p).CurrentRoundsFinished;
-            prefix = String.Format("&6[{0}] " + p.color, winStreak.ToString());
+            p.SendCpeMessage(CpeMessageType.BottomRight1, "");
+            p.SendCpeMessage(CpeMessageType.BottomRight2, "");
+            p.SendCpeMessage(CpeMessageType.BottomRight3, "");
         }
 
         // Called when a player crosses a checkpoint

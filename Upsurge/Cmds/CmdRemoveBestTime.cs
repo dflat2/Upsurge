@@ -30,12 +30,15 @@ namespace MCGalaxy
             }
 
             Database.Execute(String.Format("DELETE FROM FinishTimes " +
-                "WHERE(ID, FinishTimeMS, Checkpoint) IN " +
-                "(SELECT ID, MIN(FinishTimeMS), Checkpoint FROM FinishTimes " +
-                "NATURAL JOIN ROUNDS " +
+                "WHERE(FinishTimeMS, Checkpoint) IN " +
+                "(SELECT MIN(FinishTimeMS), Checkpoint FROM FinishTimes " +
+                "NATURAL JOIN Rounds " +
+                "WHERE (Player, Map, Checkpoint) IN " +
+                "(SELECT Player, Map, MAX(Checkpoint) FROM FinishTimes " +
+                "NATURAL JOIN Rounds " +
                 "WHERE Player = \"{0}+\" AND Map = \"{1}\" " +
-                "GROUP BY ID " +
-                "HAVING Checkpoint=MAX(Checkpoint))", player, p.level.name));
+                "GROUP BY Player, Map) " +
+                "GROUP BY Map); ", player, p.level.name));
 
             p.Message("Successfully finished removing best time data for player " + player + " on level " + p.level.name);
         }
