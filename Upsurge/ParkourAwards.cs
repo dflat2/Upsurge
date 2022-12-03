@@ -48,7 +48,7 @@ namespace MCGalaxy
             //    AwardPlayer(p, "The student becomes the master");
             //}
 
-            if (data.Finished && (data.FinishedTime - ((Stopwatch)p.Extras["stopwatch"]).getStartTime() < TimeSpan.FromSeconds(1)))
+            if (data.Finished && (data.FinishedTime - ((Stopwatch)p.Extras["stopwatch"]).GetStartTime() < TimeSpan.FromSeconds(1)))
             {
                 AwardPlayer(p, "Just in time");
             }

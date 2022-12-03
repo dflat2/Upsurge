@@ -94,6 +94,7 @@ public class Replayer
     {
         if (aTimer != null)
         {
+            aTimer.Elapsed -= OnTimedEvent;
             aTimer.Stop();
             aTimer.Dispose();
         }

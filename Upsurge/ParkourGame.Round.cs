@@ -108,6 +108,9 @@ namespace MCGalaxy.Games
 
         public override void EndRound()
         {
+            if (!RoundInProgress) return;
+            RoundInProgress = false;
+
             if (ParkourGame.Instance.Map.Extras.Contains("replayers"))
             {
 
@@ -118,20 +121,13 @@ namespace MCGalaxy.Games
                 ((List<Replayer>)(ParkourGame.Instance.Map.Extras["replayers"])).Clear();
             }
 
-            if (!RoundInProgress) return;
-            RoundInProgress = false;
-
             foreach (Player p in GetPlayers())
             {
-                ParkourData data = Get(p);
                 if (p.Extras.Contains("stopwatch"))
                 {
-                    if (p.Extras.Contains("stopwatch"))
-                    {
                         if (p.Extras["stopwatch"] != null)
-                        {
-                            ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
-                        }
+                    {
+                        ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
                     }
                 }
                 if (p.Extras.Contains("runrecorder"))
@@ -187,11 +183,11 @@ namespace MCGalaxy.Games
                 }
                 if (data.Finished)
                 {
-                    Winners.Add(p.name, Tuple.Create(data.FinishedTime - ((Stopwatch)(p.Extras["stopwatch"])).getStartTime(), UInt16.MaxValue));
+                    Winners.Add(p.name, Tuple.Create(data.FinishedTime - ((Stopwatch)(p.Extras["stopwatch"])).GetStartTime(), UInt16.MaxValue));
                 }
                 else
                 {
-                    Winners.Add(p.name, Tuple.Create(bestCheckpoint.time - ((Stopwatch)(p.Extras["stopwatch"])).getStartTime(), bestCheckpoint.num));
+                    Winners.Add(p.name, Tuple.Create(bestCheckpoint.time - ((Stopwatch)(p.Extras["stopwatch"])).GetStartTime(), bestCheckpoint.num));
                 }
             }
 

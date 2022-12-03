@@ -7,11 +7,12 @@ namespace MCGalaxy
 {
     public class Stopwatch
     {
-        static int timerAccuracy = 47;
+        static readonly int timerAccuracy = 47;
         readonly string format = @"mm\:ss\.ff";
         private System.Timers.Timer aTimer;
         DateTime startTime;
-        Player p;
+        readonly Player p;
+
         public Stopwatch(Player p)
         {
             this.p = p;
@@ -41,24 +42,21 @@ namespace MCGalaxy
         {
             if (aTimer != null)
             {
+                aTimer.Elapsed -= OnTimedEvent;
                 aTimer.Stop();
                 aTimer.Dispose();
             }
             p.SendCpeMessage(CpeMessageType.BottomRight2, "");
         }
 
-        public DateTime getStartTime()
+        public DateTime GetStartTime()
         {
             return this.startTime;
         }
 
         ~Stopwatch()
         {
-            if (aTimer != null)
-            {
-                aTimer.Stop();
-                aTimer.Dispose();
-            }
+            StopTimer();
         }
     }
 }

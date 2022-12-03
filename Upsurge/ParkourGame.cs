@@ -56,10 +56,22 @@ namespace MCGalaxy.Games
         public override string GameName { get { return "Parkour"; } }
         public override RoundsGameConfig GetConfig() { return Config; }
 
-        public static ParkourGame Instance = new ParkourGame();
-        public ParkourGame()
+        private static readonly ParkourGame instance = new ParkourGame();
+        static ParkourGame()
+        {
+        }
+
+        private ParkourGame()
         {
             Picker = new LevelPicker();
+        }
+
+        public static ParkourGame Instance
+        {
+            get
+            {
+                return instance;
+            }
         }
 
         public DateTime RoundEnd = DateTime.UtcNow;
@@ -79,7 +91,7 @@ namespace MCGalaxy.Games
             data.MaxRoundsFinished = s.MaxRoundsFinished; data.TotalRoundsFinished = s.TotalRounds;
             data.BronzeMedals = s.BronzeMedals; data.SilverMedals = s.SilverMedals; data.GoldMedals = s.GoldMedals;
 
-            p.Extras[ParkourExtrasKey] = data;   // Important
+            p.Extras[ParkourExtrasKey] = data;   // Don't really need the key like that, as plugins will not access it
 
             return data;
         }
@@ -139,7 +151,10 @@ namespace MCGalaxy.Games
 
         protected override void StartGame()
         {
-            Database.CreateTable("ParkourStats", parkourTable);
+            if (!Database.TableExists("ParkourStats"))
+            {
+                Database.CreateTable("ParkourStats", parkourTable);
+            }
             HookStats();
         }
 
@@ -167,12 +182,26 @@ namespace MCGalaxy.Games
         }
         public override void PlayerLeftGame(Player p)
         {
-            ParkourData data = Get(p);
-            data.ResetState();
             if (Finished.Contains(p))
             {
                 Finished.Remove(p);
             }
+
+            if (p.Extras.Contains("stopwatch"))
+            {
+                if (p.Extras["stopwatch"] != null)
+                {
+                    ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
+                }
+            }
+            if (p.Extras.Contains("runrecorder"))
+            {
+                if (p.Extras["runrecorder"] != null)
+                {
+                    ((RunRecorder)(p.Extras["runrecorder"])).StopRecorder();
+                }
+            }
+
             p.SendCpeMessage(CpeMessageType.BottomRight1, "");
             p.SendCpeMessage(CpeMessageType.BottomRight2, "");
             p.SendCpeMessage(CpeMessageType.BottomRight3, "");
@@ -248,7 +277,7 @@ namespace MCGalaxy.Games
                 ((Stopwatch)(p.Extras["stopwatch"])).StopTimer();
                 ((RunRecorder)(p.Extras["runrecorder"])).StopRecorder();
 
-                TimeSpan pTime = data.FinishedTime - ((Stopwatch)(p.Extras["stopwatch"])).getStartTime();
+                TimeSpan pTime = data.FinishedTime - ((Stopwatch)(p.Extras["stopwatch"])).GetStartTime();
                 string format = @"mm\:ss\.ff";
                 string timeStamp = pTime.ToString(format).TrimStart('0').TrimStart(':');
 
@@ -286,13 +315,6 @@ namespace MCGalaxy.Games
             return true;
         }
 
-
-        // TODO: Add this to mapinfo (same as in ZSGame.cs)
-        public bool HasMap(string name)
-        {
-            return Running && Config.Maps.CaselessContains(name);
-        }
-
         static string GetTimeLeft(int seconds)
         {
             if (seconds < 0) return "";
@@ -302,6 +324,17 @@ namespace MCGalaxy.Games
             return ((seconds + 59) / 60) + "m left";
         }
 
+        public bool SetQueuedLevel(Player p, string name)
+        {
+            string map = Matcher.FindMaps(p, name);
+            if (map == null) return false;
+
+            p.Message(map + " was queued.");
+            Picker.QueuedMap = map.ToLower();
+
+            if (Map != null) Map.Message(map + " was queued as the next map.");
+            return true;
+        }
         protected override string FormatStatus1(Player p)
         {
             int left = (int)(RoundEnd - DateTime.UtcNow).TotalSeconds;
@@ -324,16 +357,5 @@ namespace MCGalaxy.Games
             return "";
         }
 
-        public bool SetQueuedLevel(Player p, string name)
-        {
-            string map = Matcher.FindMaps(p, name);
-            if (map == null) return false;
-
-            p.Message(map + " was queued.");
-            Picker.QueuedMap = map.ToLower();
-
-            if (Map != null) Map.Message(map + " was queued as the next map.");
-            return true;
-        }
     }
 }

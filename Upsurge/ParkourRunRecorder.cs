@@ -45,6 +45,7 @@ public class RunRecorder
     {
         if (aTimer != null)
         {
+            aTimer.Elapsed -= OnTimedEvent;
             aTimer.Stop();
             aTimer.Dispose();
         }
@@ -52,11 +53,6 @@ public class RunRecorder
 
     ~RunRecorder()
     {
-        if (aTimer != null)
-        {
-            aTimer.Stop();
-            aTimer.Dispose();
-        }
         StopRecorder();
     }
 }

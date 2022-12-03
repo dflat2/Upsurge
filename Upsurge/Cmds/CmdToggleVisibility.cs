@@ -1,6 +1,8 @@
-﻿using MCGalaxy.Games;
+﻿using MCGalaxy.Blocks;
+using MCGalaxy.Games;
 using MCGalaxy.Maths;
 using System;
+using BlockID = System.UInt16;
 
 namespace MCGalaxy.Commands.Fun
 {
@@ -12,14 +14,11 @@ namespace MCGalaxy.Commands.Fun
 
         public override void Use(Player p, string message)
         {
-            Vec3F32 P = p.Pos.ToVec3F32();
+            AABB bb = p.ModelBB.OffsetPosition(p.Pos);
 
-            if (Math.Abs(0.5f - P.X + Math.Truncate(P.X)) > 0.2
-                || Math.Abs(0.5f - P.Y + Math.Truncate(P.Y)) > 0.2
-                || Math.Abs(0.5f - P.Z + Math.Truncate(P.Z)) > 0.2)
-            {
+            if (CheckNearWall(p, bb)) {
                 // Stupid teleportation into a wall thing
-                p.Message("Anti-exploit: you have to stand near the middle of a block to toggle visibility");
+                p.Message("Anti-exploit: don't stand too close to a wall");
                 return;
             }
 
@@ -47,6 +46,31 @@ namespace MCGalaxy.Commands.Fun
         public override void Help(Player p)
         {
             p.Message("Toggles other players' visibility in parkour.");
+        }
+
+        private bool CheckNearWall(Player p, AABB bb)
+        {
+            Vec3S32 min = bb.BlockMin, max = bb.BlockMax;
+            Level level = p.level;
+
+            Logger.Log(LogType.ConsoleMessage, "test");
+
+            for (int y = min.Y; y <= max.Y; y++)
+                for (int z = min.Z - 2; z <= max.Z + 2; z++)
+                    for (int x = min.X - 2; x <= max.X + 2; x++)
+                    {
+                        ushort xP = (ushort)x, yP = (ushort)y, zP = (ushort)z;
+
+                        BlockID block = level.GetBlock(xP, yP, zP);
+
+                        AABB blockBB = Block.BlockAABB(block, level).Offset(x * 32, y * 32, z * 32);
+
+                        if (!AABB.Intersects(ref bb, ref blockBB)) continue;
+
+                        // Some blocks will cause death of players
+                        if (level.CollideType(block) != CollideType.WalkThrough) return true;
+                    }
+            return false;
         }
     }
 }

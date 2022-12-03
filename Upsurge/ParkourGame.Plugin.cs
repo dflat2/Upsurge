@@ -64,11 +64,10 @@ namespace MCGalaxy.Games
                 ParkourGame.Instance.Picker.SendVoteMessage(p);
             }
 
-            ParkourData data = Get(p);
-
             p.SetPrefix();
             p.Extras["stopwatch"] = new Stopwatch(p);
             p.Extras["runrecorder"] = new RunRecorder(p);
+
             if (RoundInProgress)
             {
                 ReplaceGates(Block.Air);
