@@ -82,7 +82,7 @@ namespace MCGalaxy.Games
 
             foreach (TopStat stat in parkourStats) {
                 TopStat.Register(stat);
-	        }
+            }
         }
 
         static void UnhookStats()
@@ -93,7 +93,7 @@ namespace MCGalaxy.Games
 
             foreach (TopStat stat in parkourStats) {
                 TopStat.Unregister(stat);
-	        }
+            }
 
             parkourStats.Clear();
         }

@@ -16,8 +16,8 @@ namespace MCGalaxy.Games
         protected override string GameName { get { return "Parkour"; } }
 
         public ParkourConfig() { 
-			Path = "properties/parkour.properties";
-	    }
+            Path = "properties/parkour.properties";
+        }
 
         public override void Save()
         {
