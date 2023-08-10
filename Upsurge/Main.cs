@@ -11,7 +11,7 @@ namespace MCGalaxy
     public class ParkourPlugin: Plugin
     {
         public override string creator { get { return "Opapinguin"; } }
-        public override string MCGalaxy_Version { get { return "1.9.4.2"; } }
+        public override string MCGalaxy_Version { get { return "1.9.4.9"; } }
         public override string name { get { return "Parkour"; } }
 
         public override void Load(bool startup)

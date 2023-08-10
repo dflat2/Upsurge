@@ -7,7 +7,6 @@ namespace MCGalaxy.Commands.Fun
     {
         public override string name { get { return "Rate"; } }
         public override string type { get { return CommandTypes.Games; } }
-        public override CommandEnable Enabled { get { return CommandEnable.Always; } }
         public override bool SuperUseable { get { return false; } }
 
         public override void Use(Player p, string message, CommandData data)

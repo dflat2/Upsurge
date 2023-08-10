@@ -11,7 +11,6 @@ namespace MCGalaxy
     {
         public override string name { get { return "RemoveBestTime"; } }
         public override string type { get { return CommandTypes.Games; } }
-        public override CommandEnable Enabled { get { return CommandEnable.Always; } }
         public override bool SuperUseable { get { return false; } }
         public override LevelPermission defaultRank { get { return LevelPermission.Admin; } }
 

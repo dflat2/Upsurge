@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using MCGalaxy.DB;
 using MCGalaxy.SQL;
@@ -10,32 +11,68 @@ namespace MCGalaxy.Games
     {
         struct ParkourStats { public int TotalRounds, TotalRoundsFinished, MaxRoundsFinished, BronzeMedals, SilverMedals, GoldMedals, AuthorTimes; }
 
-        static TopStat statTotalRounds, statTotalRoundsFinished, statMaxRoundsFinished, statBronzeMedals, statSilverMedals, statGoldMedals, statAuthorTimes;
         static OfflineStatPrinter offlineParkourStats;
         static OnlineStatPrinter onlineParkourStats;
         static ChatToken finishedToken;
 
+        static List<DBTopStat> parkourStats = new List<DBTopStat>();
+
+        static bool AlreadyHooked => TopStat.Find("TotalRoundsPlayed") != null;
+
         static void HookStats()
         {
-            if (TopStat.Stats.Contains(statTotalRounds)) return; // don't duplicate
+            if (AlreadyHooked) return;
 
-            statTotalRounds = new TopStat("TotalRoundsPlayed", "ParkourStats", "TotalRounds",
-                                           () => "Total rounds finished", TopStat.FormatInteger);
-            statTotalRoundsFinished = new TopStat("TotalRoundsFinished", "ParkourStats", "TotalRoundsFinished",
-                                           () => "Total rounds finished", TopStat.FormatInteger);
-            statMaxRoundsFinished = new TopStat("ConsecutiveMaxFinished", "ParkourStats", "MaxRoundsFinished",
-                                          () => "Most consecutive rounds finished", TopStat.FormatInteger);
-            statBronzeMedals = new TopStat("BronzeMedals", "ParkourStats", "BronzeMedals",
-                                          () => "Number of bronze medals", TopStat.FormatInteger);
-            statSilverMedals = new TopStat("SilverMedals", "ParkourStats", "SilverMedals",
-                                          () => "Number of silver medals", TopStat.FormatInteger);
-            statGoldMedals = new TopStat("GoldMedals", "ParkourStats", "GoldMedals",
-                                          () => "Number of gold medals", TopStat.FormatInteger);
-            statAuthorTimes = new TopStat("AuthorTimes", "ParkourStats", "AuthorTimes",
-                                          () => "Number of author times beaten", TopStat.FormatInteger);
+            parkourStats.Add(new DBTopStat(
+                identifier: "TotalRoundsPlayed",
+                title: "Total rounds finished",
+                table: "ParkourStats",
+                column: "TotalRounds",
+                formatter: TopStat.FormatInteger));
 
-            finishedToken = new ChatToken("$finished", "Total number of rounds finished",
-                                          p => Get(p).TotalRoundsFinished.ToString());
+            parkourStats.Add(new DBTopStat(
+                identifier: "TotalRoundsFinished",
+                title: "Total rounds finished",
+                table: "ParkourStats",
+                column: "TotalRoundsFinished",
+                formatter: TopStat.FormatInteger));
+
+            parkourStats.Add(new DBTopStat(
+                identifier: "ConsecutiveMaxFinished",
+                title: "Most consecutive rounds finished",
+                table: "ParkourStats",
+                column: "MaxRoundsFinished",
+                formatter: TopStat.FormatInteger));
+
+            parkourStats.Add(new DBTopStat(
+                identifier: "BronzeMedals",
+                title: "Number of bronze medals",
+                table: "ParkourStats",
+                column: "BronzeMedals",
+                formatter: TopStat.FormatInteger));
+
+            parkourStats.Add(new DBTopStat(
+                identifier: "SilverMedals",
+                title: "Number of silver medals",
+                table: "ParkourStats",
+                column: "SilverMedals",
+                formatter: TopStat.FormatInteger));
+
+            parkourStats.Add(new DBTopStat(
+                identifier: "GoldMedals",
+                title: "Number of gold medals",
+                table: "ParkourStats",
+                column: "GoldMedals",
+                formatter: TopStat.FormatInteger));
+
+            parkourStats.Add(new DBTopStat(
+                identifier: "AuthorTimes",
+                title: "Number of author times beaten",
+                table: "ParkourStats",
+                column: "AuthorTimes",
+                formatter: TopStat.FormatInteger));
+
+            finishedToken = new ChatToken("$finished", "Total number of rounds finished", p => Get(p).TotalRoundsFinished.ToString());
 
             offlineParkourStats = PrintOfflineParkourStats;
             onlineParkourStats = PrintOnlineParkourStats;
@@ -43,13 +80,9 @@ namespace MCGalaxy.Games
             OnlineStat.Stats.Add(onlineParkourStats);
             ChatTokens.Standard.Add(finishedToken);
 
-            TopStat.Stats.Add(statTotalRounds);
-            TopStat.Stats.Add(statTotalRoundsFinished);
-            TopStat.Stats.Add(statMaxRoundsFinished);
-            TopStat.Stats.Add(statBronzeMedals);
-            TopStat.Stats.Add(statSilverMedals);
-            TopStat.Stats.Add(statGoldMedals);
-            TopStat.Stats.Add(statAuthorTimes);
+            foreach (TopStat stat in parkourStats) {
+                TopStat.Register(stat);
+	        }
         }
 
         static void UnhookStats()
@@ -58,13 +91,11 @@ namespace MCGalaxy.Games
             OnlineStat.Stats.Remove(onlineParkourStats);
             ChatTokens.Standard.Remove(finishedToken);
 
-            TopStat.Stats.Remove(statTotalRounds);
-            TopStat.Stats.Remove(statTotalRoundsFinished);
-            TopStat.Stats.Remove(statMaxRoundsFinished);
-            TopStat.Stats.Remove(statBronzeMedals);
-            TopStat.Stats.Remove(statSilverMedals);
-            TopStat.Stats.Remove(statGoldMedals);
-            TopStat.Stats.Remove(statAuthorTimes);
+            foreach (TopStat stat in parkourStats) {
+                TopStat.Unregister(stat);
+	        }
+
+            parkourStats.Clear();
         }
 
         // Don't know why MCGalaxy defaults to distinguishing online and offline stats?

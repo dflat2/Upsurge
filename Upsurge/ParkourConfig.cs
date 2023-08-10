@@ -14,13 +14,16 @@ namespace MCGalaxy.Games
         static ConfigElement[] cfg;
         public override bool AllowAutoload { get { return true; } }
         protected override string GameName { get { return "Parkour"; } }
-        protected override string PropsPath { get { return "properties/parkour.properties"; } }
+
+        public ParkourConfig() { 
+			Path = "properties/parkour.properties";
+	    }
 
         public override void Save()
         {
             if (cfg == null) cfg = ConfigElement.GetAll(typeof(ParkourConfig));
 
-            using (StreamWriter w = new StreamWriter(PropsPath))
+            using (StreamWriter w = new StreamWriter(Path))
             {
                 ConfigElement.Serialise(cfg, w, this);
             }
@@ -29,7 +32,7 @@ namespace MCGalaxy.Games
         public override void Load()
         {
             if (cfg == null) cfg = ConfigElement.GetAll(typeof(ParkourConfig));
-            PropertiesFile.Read(PropsPath, ProcessConfigLine);
+            PropertiesFile.Read(Path, ProcessConfigLine);
         }
 
         void ProcessConfigLine(string key, string value)
