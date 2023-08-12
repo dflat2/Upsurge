@@ -56,6 +56,8 @@ namespace MCGalaxy.Games
         public override string GameName { get { return "Parkour"; } }
         public override RoundsGameConfig GetConfig() { return Config; }
 
+        protected override string WelcomeMessage => "&TParkour &Sis running! Type &T/Parkour go &Sto join.";
+
         private static readonly ParkourGame instance = new ParkourGame();
         static ParkourGame()
         {

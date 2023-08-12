@@ -8,7 +8,6 @@ namespace MCGalaxy
     public class CmdPlayerBest : Command2
     {
         public override string name { get { return "PlayerBest"; } }
-        public override CommandEnable Enabled { get { return CommandEnable.Always; } }
         public override bool SuperUseable { get { return false; } }
         public override string type { get { return CommandTypes.Information; } }
         public override void Use(Player p, string message)
