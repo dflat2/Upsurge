@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Linq;
-using MCGalaxy.Blocks.Extended;
-using MCGalaxy.Maths;
 using MCGalaxy.SQL;
 
 namespace MCGalaxy.Games

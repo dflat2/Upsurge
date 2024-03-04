@@ -1,6 +1,4 @@
-﻿using MCGalaxy.Games;
-
-namespace MCGalaxy.Commands.Building
+﻿namespace MCGalaxy.Commands.Building
 {
     public sealed class CmdParkourGate : Command2
     {

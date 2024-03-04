@@ -1,8 +1,6 @@
-﻿using MCGalaxy;
-using MCGalaxy.Games;
+﻿using MCGalaxy.Games;
 using MCGalaxy.Modules.Awards;
 using System;
-using System.Linq;
 
 namespace MCGalaxy
 {

@@ -1,5 +1,4 @@
-﻿using MCGalaxy.Games;
-using MCGalaxy.SQL;
+﻿using MCGalaxy.SQL;
 using System;
 using System.Collections.Generic;
 

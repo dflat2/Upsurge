@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Timers;
-using MCGalaxy;
-using MCGalaxy.Games;
 
 namespace MCGalaxy
 {

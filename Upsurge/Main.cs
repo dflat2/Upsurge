@@ -1,5 +1,4 @@
 ﻿using System;
-using MCGalaxy;
 using MCGalaxy.Commands;
 using MCGalaxy.Commands.Building;
 using MCGalaxy.Commands.Fun;

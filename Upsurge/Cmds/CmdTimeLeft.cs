@@ -1,6 +1,4 @@
-﻿using MCGalaxy.Commands;
-using MCGalaxy.DB;
-using MCGalaxy.Games;
+﻿using MCGalaxy.Games;
 using System;
 
 namespace MCGalaxy

@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace MCGalaxy.Commands.Fun
+﻿namespace MCGalaxy.Commands.Fun
 {
 
     public class CmdRate : Command2
