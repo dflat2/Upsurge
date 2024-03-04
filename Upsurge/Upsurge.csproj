@@ -15,15 +15,12 @@
     <Reference Include="LibNoise">
       <HintPath>..\LibNoise.dll</HintPath>
     </Reference>
-    <Reference Include="MCGalaxy_">
-      <HintPath>..\..\..\MCGalaxy-master\obj\Debug\MCGalaxy_.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\MCGalaxy-master\bin\Debug\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MCGalaxy\MCGalaxy\MCGalaxy_.csproj" />
+  </ItemGroup>
 </Project>
